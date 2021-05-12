@@ -1,0 +1,6 @@
+/Users/mr.panda/IdeaProjects/hrms/src/main/java/kodlama/io/hrms/dataAccess/abstracts/JobPositionDao.java
+/Users/mr.panda/IdeaProjects/hrms/src/main/java/kodlama/io/hrms/business/concretes/JobPositionManager.java
+/Users/mr.panda/IdeaProjects/hrms/src/main/java/kodlama/io/hrms/entities/concretes/JobPosition.java
+/Users/mr.panda/IdeaProjects/hrms/src/main/java/kodlama/io/hrms/business/abstracts/JobPositionService.java
+/Users/mr.panda/IdeaProjects/hrms/src/main/java/kodlama/io/hrms/HrmsApplication.java
+/Users/mr.panda/IdeaProjects/hrms/src/main/java/kodlama/io/hrms/api/controllers/JobPositionsController.java

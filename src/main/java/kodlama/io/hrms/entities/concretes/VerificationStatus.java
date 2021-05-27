@@ -2,32 +2,35 @@ package kodlama.io.hrms.entities.concretes;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import kodlama.io.hrms.entities.abstracts.User;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Data
-@Table(name = "job_seekers")
+@Table(name = "verification_status")
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class JobSeeker{
+public class VerificationStatus {
 
     @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
     @Column(name = "user_id")
     private int userId;
 
-    @Column(name = "national_id")
-    private long nationality_id;
+    @Column(name = "system_verification")
+    private boolean systemVerify;
 
-    @Column(name = "first_name")
-    private String firstName;
+    @Column(name = "email_verification")
+    private boolean emailVerify;
 
-    @Column(name = "last_name")
-    private String lastName;
-
-    @Column(name = "year_of_birth")
-    private int year_of_birth;
+    @Column(name = "mernis_verification")
+    private boolean mernisVerify;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = User.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "id", referencedColumnName = "userId")

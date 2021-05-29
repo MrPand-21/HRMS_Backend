@@ -2,7 +2,7 @@ package kodlama.io.hrms.business.concretes;
 
 import kodlama.io.hrms.business.abstracts.JobSeekerService;
 import kodlama.io.hrms.business.constants.Messages;
-import kodlama.io.hrms.core.utilities.adapters.adapters.abstracts.EmailVerification;
+import kodlama.io.hrms.core.utilities.adapters.adapters.abstracts.EmailVerificationService;
 import kodlama.io.hrms.core.utilities.adapters.adapters.abstracts.JobSeekerCheckService;
 import kodlama.io.hrms.core.utilities.results.*;
 import kodlama.io.hrms.dataAccess.abstracts.JobSeekerDao;
@@ -20,10 +20,10 @@ public class JobSeekerManager implements JobSeekerService {
     private JobSeekerDao jobSeekerDao;
     private JobSeekerCheckService jobSeekerCheckService;
     private UserDao userDao;
-    private EmailVerification emailVerification;
+    private EmailVerificationService emailVerification;
 
     @Autowired
-    public JobSeekerManager(JobSeekerDao jobSeekerDao, JobSeekerCheckService jobSeekerCheckService, UserDao userDao, EmailVerification emailVerification) {
+    public JobSeekerManager(JobSeekerDao jobSeekerDao, JobSeekerCheckService jobSeekerCheckService, UserDao userDao, EmailVerificationService emailVerification) {
         this.jobSeekerDao = jobSeekerDao;
         this.jobSeekerCheckService = jobSeekerCheckService;
         this.userDao = userDao;
@@ -48,7 +48,7 @@ public class JobSeekerManager implements JobSeekerService {
         }
 
         if(!checkedResult.isSuccess()){
-            return new FailResult(result.getMessage());
+            return new FailResult(checkedResult.getMessage());
         }
 
         Result verify = emailVerification.Verify(jobSeeker.getUser());
@@ -79,13 +79,13 @@ public class JobSeekerManager implements JobSeekerService {
         if(String.valueOf(jobSeeker.getNationalityId()).length() != 11){
             return new FailResult(Messages.NationalityIdIncorrect);
         }
-        if(jobSeeker.getBirthDate() <= 1900 && jobSeeker.getBirthDate() > LocalDate.now().getYear()){
+        if(jobSeeker.getBirthDate() <= 1900 || jobSeeker.getBirthDate() > LocalDate.now().getYear()){
             return new FailResult(Messages.BirthYearIncorrect);
         }
-        if(userDao.findByEmail(jobSeeker.getUser().getEmail()) == null){
+        if(userDao.findByEmail(jobSeeker.getUser().getEmail()).stream().count() != 0){
             return new FailResult(Messages.EmailUsing);
         }
-        if(jobSeekerDao.findByNationalityId(jobSeeker.getNationalityId()) == null){
+        if(jobSeekerDao.findByNationalityId(jobSeeker.getNationalityId()).stream().count() != 0){
             return new FailResult(Messages.NationalityIdUsing);
         }
 

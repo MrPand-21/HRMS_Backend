@@ -1,6 +1,7 @@
 package kodlama.io.hrms.entities.concretes;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.sun.istack.NotNull;
 import kodlama.io.hrms.entities.abstracts.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,20 +18,25 @@ import javax.persistence.*;
 public class Employer{
 
     @Id
-    @Column(name = "user_id")
-    private int userId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
 
-    @Column(name = "company_name")
+    @NotNull
+    @Column(name = "companyname")
     private String companyName;
 
-    @Column(name = "phone")
-    private String phoneNumber;
+    @NotNull
+    @Column(name = "phonenumber")
+    private String phone;
 
-    @Column(name = "web_sites")
+    @NotNull
+    @Column(name = "website")
     private String webSites;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = User.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "userId")
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = User.class , cascade = CascadeType.ALL)
+    @JoinColumn(name = "userid", referencedColumnName = "id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private User user;
 

@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface JobSeekerDao extends JpaRepository<JobSeeker,Integer> {
-    List<JobSeeker> findAllByNationality_id(long nationalityId);
+    List<JobSeeker> findByNationalityId(long nationalityId);
 }

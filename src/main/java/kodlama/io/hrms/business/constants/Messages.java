@@ -16,4 +16,5 @@ public class Messages {
     public static String NationalityIdUsing = "Nationality Id is using. Please use another Nationality Id.";
     public static String Verified = "Verified User";
     public static String UserAdded = "User Added!!!";
+    public static String EmployerAdded = "Employer added!! Please wait for activating your account.";
 }

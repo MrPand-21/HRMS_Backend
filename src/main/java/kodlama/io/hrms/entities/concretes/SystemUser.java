@@ -16,17 +16,17 @@ import javax.persistence.*;
 public class SystemUser{
 
     @Id
-    @Column(name = "user_id")
-    private int userId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
 
-    @Column(name = "first_name")
-    private String firstName;
 
-    @Column(name = "last_Name")
-    private String lastName;
+    @Column(name = "role_")
+    private String role;
+
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = User.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "userId")
+    @JoinColumn(name = "userid", referencedColumnName = "id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private User user;
 

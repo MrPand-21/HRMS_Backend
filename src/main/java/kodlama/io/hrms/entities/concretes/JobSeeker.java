@@ -5,6 +5,7 @@ import kodlama.io.hrms.entities.abstracts.User;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @Table(name = "job_seekers")
@@ -14,24 +15,25 @@ import javax.persistence.*;
 public class JobSeeker{
 
     @Id
-    @Column(name = "user_id")
-    private int userId;
-
-    @Column(name = "national_id")
-    private long nationality_id;
-
-    @Column(name = "first_name")
-    private String firstName;
-
-    @Column(name = "last_name")
-    private String lastName;
-
-    @Column(name = "year_of_birth")
-    private int year_of_birth;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = User.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "userId")
+    @JoinColumn(name = "userid" , referencedColumnName = "id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private User user;
+
+    @Column(name = "firstname")
+    private String firstName;
+
+    @Column(name = "lastname")
+    private String lastName;
+
+    @Column(name = "birthdate")
+    private int birthDate;
+
+    @Column(name = "nationalityid")
+    private long nationalityId;
 
 }

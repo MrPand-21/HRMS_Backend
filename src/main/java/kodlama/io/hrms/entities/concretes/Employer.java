@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Data
@@ -39,5 +40,8 @@ public class Employer{
     @JoinColumn(name = "userid", referencedColumnName = "id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private User user;
+
+    @OneToMany(mappedBy = "employer")
+    private List<Job> jobs;
 
 }

@@ -17,4 +17,8 @@ public class Messages {
     public static String Verified = "Verified User";
     public static String UserAdded = "User Added!!!";
     public static String EmployerAdded = "Employer added!! Please wait for activating your account.";
+
+    public static String JobIsVisible = "Job is visible now! Prepare for job seekers!";
+    public static String JobIsInvisible = "Ups? Your job is invisible now. Job seekers can not see your job. Is there a problem?";
+    public static String JobAdded = "Job added to DB !!!";
 }

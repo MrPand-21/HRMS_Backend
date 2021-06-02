@@ -21,4 +21,6 @@ public class Messages {
     public static String JobIsVisible = "Job is visible now! Prepare for job seekers!";
     public static String JobIsInvisible = "Ups? Your job is invisible now. Job seekers can not see your job. Is there a problem?";
     public static String JobAdded = "Job added to DB !!!";
+
+    public static String ImageUploaded = "Image uploaded!";
 }

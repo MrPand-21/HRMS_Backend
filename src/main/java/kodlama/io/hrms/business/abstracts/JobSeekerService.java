@@ -13,4 +13,8 @@ public interface JobSeekerService {
 
     DataResult<List<JobSeeker>> getAll();
 
+    DataResult<JobSeeker> getById(int id);
+
+    DataResult<List<JobSeeker>> getAllByWorkingExperience();
+
 }

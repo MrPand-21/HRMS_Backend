@@ -65,6 +65,16 @@ public class JobSeekerManager implements JobSeekerService {
         return new SuccessDataResult<List<JobSeeker>>(Messages.DataListed,jobSeekerDao.findAll());
     }
 
+    @Override
+    public DataResult<JobSeeker> getById(int id) {
+        return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.findById(id));
+    }
+
+    @Override
+    public DataResult<List<JobSeeker>> getAllByWorkingExperience() {
+        return new SuccessDataResult<List<JobSeeker>>(this.jobSeekerDao.findByOrderByWorkExperiences_StartingDateDesc());
+    }
+
     private Result isJobSeekerAppropriate(JobSeeker jobSeeker){
 
         if(jobSeeker.getUser().getEmail() == null){

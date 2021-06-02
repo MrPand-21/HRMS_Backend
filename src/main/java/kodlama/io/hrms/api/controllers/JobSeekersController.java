@@ -8,6 +8,7 @@ import kodlama.io.hrms.core.utilities.results.SuccessResult;
 import kodlama.io.hrms.entities.concretes.Employer;
 import kodlama.io.hrms.entities.concretes.JobSeeker;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,5 +37,15 @@ public class JobSeekersController {
     @GetMapping("getall")
     public DataResult<List<JobSeeker>> getAll() {
         return jobSeekerService.getAll();
+    }
+
+    @GetMapping("getbyid")
+    public ResponseEntity<?> getById(@RequestParam int id){
+        return ResponseEntity.ok(this.jobSeekerService.getById(id));
+    }
+
+    @GetMapping("getAllByWorkExperiences")
+    public ResponseEntity<?> getByWorkExperiencesDesc(){
+        return ResponseEntity.ok(this.jobSeekerService.getAllByWorkingExperience());
     }
 }

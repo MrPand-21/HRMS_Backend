@@ -6,6 +6,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Table(name = "job_seekers")
@@ -35,5 +36,30 @@ public class JobSeeker{
 
     @Column(name = "nationalityid")
     private long nationalityId;
+
+    @Column(name = "linkedin_account")
+    private String linkedInAccount;
+
+    @Column(name = "github_account")
+    private String githubAccount;
+
+    @Column(name = "info_about_job_seeker")
+    private String info;
+
+    @OneToMany(targetEntity = KnownLanguage.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "jobSeeker")
+    private List<KnownLanguage> languages;
+
+    @OneToMany(mappedBy = "jobSeeker",targetEntity = AttendedSchool.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<AttendedSchool> attendedSchools;
+
+    @OneToMany(mappedBy = "jobSeeker",targetEntity = AttendedSchool.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Image> images;
+
+    @OneToMany(mappedBy = "jobSeeker",targetEntity = AttendedSchool.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<WorkExperience> workExperiences;
+
+    @ManyToOne(targetEntity = JobPosition.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "job_position_id", referencedColumnName = "id")
+    private JobPosition jobPosition;
 
 }

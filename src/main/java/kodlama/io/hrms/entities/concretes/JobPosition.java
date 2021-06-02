@@ -31,4 +31,10 @@ public class JobPosition {
     @OneToMany(mappedBy = "jobPosition")
     private List<Job> jobs;
 
+    @OneToMany(mappedBy = "jobPosition")
+    private List<WorkExperience> workExperiences;
+
+    @OneToMany(mappedBy = "jobPosition")
+    private List<JobSeeker> jobSeekers;
+
 }

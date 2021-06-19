@@ -12,6 +12,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/jobs/")
 public class JobController {
 

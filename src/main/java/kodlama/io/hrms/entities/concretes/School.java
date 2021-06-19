@@ -1,6 +1,7 @@
 package kodlama.io.hrms.entities.concretes;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import kodlama.io.hrms.entities.abstracts.User;
 import lombok.AllArgsConstructor;
@@ -15,6 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "schools")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "attendedSchools","departments" })
 public class School {
 
     @Id
@@ -27,6 +29,7 @@ public class School {
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<Department> departments;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "school")
     private List<AttendedSchool> attendedSchools;
 

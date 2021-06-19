@@ -15,6 +15,8 @@ public class JobForGetAllDto {
 
     private String positionName;
 
+    private String companyName;
+
     private int number_of_empty_positions;
 
     private String cityName;

@@ -2,6 +2,7 @@ package kodlama.io.hrms.entities.concretes;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +17,7 @@ import java.util.List;
 @Table(name = "job_positions")
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "Job"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler","jobs", "jobSeekers", "workExperiences"})
 public class JobPosition {
 
 
@@ -29,12 +30,11 @@ public class JobPosition {
     private String position_name;
 
     @OneToMany(mappedBy = "jobPosition")
+    @JsonIgnore
     private List<Job> jobs;
 
     @OneToMany(mappedBy = "jobPosition")
+    @JsonIgnore
     private List<WorkExperience> workExperiences;
-
-    @OneToMany(mappedBy = "jobPosition")
-    private List<JobSeeker> jobSeekers;
 
 }

@@ -1,5 +1,6 @@
 package kodlama.io.hrms.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import kodlama.io.hrms.entities.abstracts.User;
 import lombok.*;
@@ -58,8 +59,5 @@ public class JobSeeker{
     @OneToMany(mappedBy = "jobSeeker",targetEntity = AttendedSchool.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<WorkExperience> workExperiences;
 
-    @ManyToOne(targetEntity = JobPosition.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "job_position_id", referencedColumnName = "id")
-    private JobPosition jobPosition;
 
 }

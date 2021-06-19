@@ -1,5 +1,6 @@
 package kodlama.io.hrms.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,7 @@ public class AttendedSchool {
 
     @ManyToOne()
     @JoinColumn(name = "job_seeker_id")
+    @JsonIgnore
     private JobSeeker jobSeeker;
 
     @Column(name = "startingDateOfUniversity")

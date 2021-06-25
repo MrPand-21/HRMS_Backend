@@ -13,10 +13,16 @@ import java.util.List;
 @Repository
 public interface JobDao extends JpaRepository<Job, Integer> {
 
-    @Query("select new kodlama.io.hrms.entities.dtos.JobForGetAllDto(j.id , j.jobPosition.position_name ,e.companyName , j.empty_positions, c.cityName ,j.createdDate, j.deadline) from Job j Inner Join j.employer e Inner Join j.jobPosition p INNER JOIN j.city c where j.isActive = true ")
-    List<JobForGetAllDto> getAllJobs();
+    @Query("select new kodlama.io.hrms.entities.dtos.JobForGetAllDto" +
+            "(j.id , p.position_name , e.companyName , j.empty_positions, c.cityName ,j.createdDate, j.deadline, j.isActive , apf.isApproved )" +
+            " from ActivationPanelForSystemUser apf " +
+            " inner join apf.job j" +
+            " inner join j.employer e" +
+            " inner join j.jobPosition p" +
+            " inner join j.city c ")
+    List<JobForGetAllDto> getAllJobDtos();
 
-    @Query("select new kodlama.io.hrms.entities.dtos.JobForGetAllDto(j.id , j.jobPosition.position_name, e.companyName , j.empty_positions, c.cityName ,j.createdDate, j.deadline) from Job j Inner Join j.employer e Inner Join j.jobPosition p INNER JOIN j.city c where j.isActive = true and j.deadline > current_date order by j.createdDate")
+    @Query("select new kodlama.io.hrms.entities.dtos.JobForGetAllDto(j.id , p.position_name , e.companyName , j.empty_positions, c.cityName ,j.createdDate, j.deadline, j.isActive ,a.isApproved ) from Job j inner join j.employer e inner join j.jobPosition p inner join j.city c inner join ActivationPanelForSystemUser a on j.id = a.job.id where j.isActive = true and j.id = a.job.id and j.deadline > current_date order by j.createdDate")
     List<JobForGetAllDto> getAllJobsByDate();
 
 

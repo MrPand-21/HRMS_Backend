@@ -24,4 +24,9 @@ public class JobForGetAllDto {
     private Date createdDate;
 
     private Date deadLine;
+
+    private boolean isActive;
+
+    private boolean isApproved;
+    
 }

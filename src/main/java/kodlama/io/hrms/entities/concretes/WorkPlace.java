@@ -1,7 +1,6 @@
 package kodlama.io.hrms.entities.concretes;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,18 +12,19 @@ import java.util.List;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "cities")
-public class City {
+@Table(name = "workPlace")
+public class WorkPlace {
 
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
 
-    @Column(name = "city_name")
-    private String cityName;
+    @Column(name = "work_place_name")
+    private String workPlaceName;
 
-    @OneToMany(mappedBy = "city")
     @JsonIgnore
-    private List<Job> jobAdvertisements;
+    @OneToMany(mappedBy = "workPlace")
+    private List<Job> jobs;
+
 }

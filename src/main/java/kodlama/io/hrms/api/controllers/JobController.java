@@ -40,13 +40,13 @@ public class JobController {
 
     @Transactional
     @PostMapping("setinactivetojobvisibility")
-    public Result setInactiveToJobVisibility(int id) {
+    public Result setInactiveToJobVisibility(@RequestParam int id) {
         return this.jobService.setInactiveToJobVisibility(id);
     }
 
     @Transactional
     @PostMapping("setactivetojobvisibility")
-    public Result setActiveToJobVisibility(int id) {
+    public Result setActiveToJobVisibility(@RequestParam int id) {
         return this.jobService.setActiveToJobVisibility(id);
     }
 

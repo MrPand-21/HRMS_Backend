@@ -1,5 +1,6 @@
 package kodlama.io.hrms.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import kodlama.io.hrms.entities.abstracts.User;
 import lombok.AllArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Table(name = "system_users")
@@ -21,7 +23,7 @@ public class SystemUser{
     private int id;
 
 
-    @Column(name = "role_")
+    @Column(name = "role")
     private String role;
 
 
@@ -29,5 +31,9 @@ public class SystemUser{
     @JoinColumn(name = "userid", referencedColumnName = "id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private User user;
+
+    @OneToMany(mappedBy = "systemUser")
+    @JsonIgnore
+    private List<ActivationPanelForSystemUser> activationPanelForSystemUsers;
 
 }

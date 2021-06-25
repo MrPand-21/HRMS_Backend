@@ -23,4 +23,9 @@ public class Messages {
     public static String JobAdded = "Job added to DB !!!";
 
     public static String ImageUploaded = "Image uploaded!";
+
+    public static String WorkPlaceFound = "Work place found!";
+    public static String WorkTimeFound = "Work time found!";
+    public static String JobApproved  = "Job approved!";
+    public static String JobUnapproved = "Job unapproved!";
 }

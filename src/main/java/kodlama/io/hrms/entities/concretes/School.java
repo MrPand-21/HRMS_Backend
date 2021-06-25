@@ -25,7 +25,7 @@ public class School {
     private int id;
 
     @OneToMany(fetch = FetchType.LAZY, targetEntity = Department.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "department_id")
+    @JoinColumn(name = "id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<Department> departments;
 

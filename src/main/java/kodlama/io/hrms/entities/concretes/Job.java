@@ -1,19 +1,18 @@
 package kodlama.io.hrms.entities.concretes;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "job")
+@Table(name = "jobs")
 public class Job {
 
     @Id
@@ -53,5 +52,13 @@ public class Job {
     @ManyToOne()
     @JoinColumn(name = "employer_id")
     private Employer employer;
+
+    @ManyToOne()
+    @JoinColumn(name = "work_place_id")
+    private WorkPlace workPlace;
+
+    @ManyToOne()
+    @JoinColumn(name = "work_time_id")
+    private WorkTime workTime;
 
 }

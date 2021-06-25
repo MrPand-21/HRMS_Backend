@@ -6,37 +6,47 @@ import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.Result;
 import kodlama.io.hrms.core.utilities.results.SuccessDataResult;
 import kodlama.io.hrms.core.utilities.results.SuccessResult;
+import kodlama.io.hrms.dataAccess.abstracts.ActivationPanelDao;
 import kodlama.io.hrms.dataAccess.abstracts.JobDao;
+import kodlama.io.hrms.entities.concretes.ActivationPanelForSystemUser;
 import kodlama.io.hrms.entities.concretes.Job;
 import kodlama.io.hrms.entities.dtos.JobForGetAllDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class JobManager implements JobService {
 
     private JobDao jobDao;
+    private ActivationPanelDao activationPanelDao;
 
     @Autowired
-    public JobManager(JobDao jobDao) {
+    public JobManager(JobDao jobDao,ActivationPanelDao activationPanelDao) {
         this.jobDao = jobDao;
+        this.activationPanelDao = activationPanelDao;
     }
 
     @Override
     public DataResult<List<JobForGetAllDto>> getAll() {
-        return new SuccessDataResult<List<JobForGetAllDto>>(Messages.DataListed, jobDao.getAllJobs());
+        return new SuccessDataResult<List<JobForGetAllDto>>(
+
+                Messages.DataListed, jobDao.getAllJobDtos());
+
     }
 
     @Override
     public DataResult<List<JobForGetAllDto>> getAllByDate() {
-        return new SuccessDataResult<List<JobForGetAllDto>>(Messages.DataListed, jobDao.getAllJobsByDate());
+        return new SuccessDataResult<List<JobForGetAllDto>>(Messages.DataListed,
+                jobDao.getAllJobsByDate());
     }
 
     @Override
     public DataResult<List<Job>> getAllJobOfEmployer(int employerId) {
-        return new SuccessDataResult<List<Job>>(Messages.DataListed, jobDao.getAllByIsActiveTrueAndEmployer_Id(employerId));
+        return new SuccessDataResult<List<Job>>(Messages.DataListed,
+                jobDao.getAllByIsActiveTrueAndEmployer_Id(employerId));
     }
 
     @Override
@@ -53,6 +63,9 @@ public class JobManager implements JobService {
 
     @Override
     public Result add(Job job) {
+        ActivationPanelForSystemUser activationPanelForSystemUser = new
+                ActivationPanelForSystemUser(null,job,new Date(),false,null);
+        activationPanelDao.save(activationPanelForSystemUser);
         jobDao.save(job);
         return new SuccessResult(Messages.JobAdded);
     }

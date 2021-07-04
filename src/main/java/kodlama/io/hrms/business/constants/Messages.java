@@ -28,4 +28,9 @@ public class Messages {
     public static String WorkTimeFound = "Work time found!";
     public static String JobApproved  = "Job approved!";
     public static String JobUnapproved = "Job unapproved!";
+
+    public static String CityAdded = "City added to db!";
+    public static String CityUpdated = "City updated!";
+    public static String CityDeleted = "City successfully deleted from db!";
+    public static String JobDeleted = "Job successfully deleted from db!";
 }

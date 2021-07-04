@@ -14,19 +14,57 @@ import java.util.List;
 public interface JobDao extends JpaRepository<Job, Integer> {
 
     @Query("select new kodlama.io.hrms.entities.dtos.JobForGetAllDto" +
-            "(j.id , p.position_name , e.companyName , j.empty_positions, c.cityName ,j.createdDate, j.deadline, j.isActive , apf.isApproved )" +
+            "(j.id , j.minimumSalary, j.maximumSalary, j.empty_positions, p.position_name , e.companyName , c.cityName ,j.createdDate, j.deadline, wp.workPlaceName, wt.workTimeName, j.description, j.isActive ,apf.isApproved )" +
             " from ActivationPanelForSystemUser apf " +
             " inner join apf.job j" +
             " inner join j.employer e" +
             " inner join j.jobPosition p" +
-            " inner join j.city c ")
+            " inner join j.city c " +
+            " inner join j.workPlace wp" +
+            " inner join j.workTime wt" )
     List<JobForGetAllDto> getAllJobDtos();
 
-    @Query("select new kodlama.io.hrms.entities.dtos.JobForGetAllDto(j.id , p.position_name , e.companyName , j.empty_positions, c.cityName ,j.createdDate, j.deadline, j.isActive ,a.isApproved ) from Job j inner join j.employer e inner join j.jobPosition p inner join j.city c inner join ActivationPanelForSystemUser a on j.id = a.job.id where j.isActive = true and j.id = a.job.id and j.deadline > current_date order by j.createdDate")
+    @Query("select new kodlama.io.hrms.entities.dtos.JobForGetAllDto" +
+            "(j.id , j.minimumSalary, j.maximumSalary, j.empty_positions, p.position_name , e.companyName , c.cityName ,j.createdDate, j.deadline, wp.workPlaceName, wt.workTimeName, j.description, j.isActive ,apf.isApproved )" +
+            " from ActivationPanelForSystemUser apf " +
+            " inner join apf.job j" +
+            " inner join j.employer e" +
+            " inner join j.jobPosition p" +
+            " inner join j.city c " +
+            " inner join j.workPlace wp" +
+            " inner join j.workTime wt" +
+            " where apf.isApproved = true")
+    List<JobForGetAllDto> getAllApprovedJobDtos();
+
+    @Query("select new kodlama.io.hrms.entities.dtos.JobForGetAllDto" +
+            "(j.id , j.minimumSalary, j.maximumSalary, j.empty_positions, p.position_name , e.companyName , c.cityName ,j.createdDate, j.deadline, wp.workPlaceName, wt.workTimeName, j.description, j.isActive ,apf.isApproved  )" +
+            " from ActivationPanelForSystemUser apf " +
+            " inner join apf.job j" +
+            " inner join j.employer e" +
+            " inner join j.jobPosition p" +
+            " inner join j.city c "  +
+            " inner join j.workPlace wp" +
+            " inner join j.workTime wt" +
+            " where apf.isApproved = false")
+    List<JobForGetAllDto> getAllUnapprovedJobDtos();
+
+
+    @Query("select new kodlama.io.hrms.entities.dtos.JobForGetAllDto" +
+            "(j.id , j.minimumSalary, j.maximumSalary, j.empty_positions, p.position_name , e.companyName , c.cityName ,j.createdDate, j.deadline, wp.workPlaceName, wt.workTimeName, j.description, j.isActive ,apf.isApproved  )" +
+            " from ActivationPanelForSystemUser apf " +
+            " inner join apf.job j" +
+            " inner join j.employer e" +
+            " inner join j.jobPosition p" +
+            " inner join j.city c "  +
+            " inner join j.workPlace wp" +
+            " inner join j.workTime wt" +
+            " where j.isActive = true and j.deadline > current_date order by j.createdDate")
     List<JobForGetAllDto> getAllJobsByDate();
 
 
     List<Job> getAllByIsActiveTrueAndEmployer_Id(int id);
+
+    Job getJobById(int id);
 
     @Modifying
     @Query("UPDATE Job SET isActive = false WHERE id =:id")

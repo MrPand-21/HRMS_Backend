@@ -10,5 +10,6 @@ import java.util.List;
 @Repository
 public interface EmployerDao extends JpaRepository<Employer,Integer> {
 
+    Employer getEmployerById(int id);
 
 }

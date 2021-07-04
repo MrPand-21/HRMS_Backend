@@ -4,8 +4,10 @@ import kodlama.io.hrms.business.abstracts.JobService;
 import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.Result;
 import kodlama.io.hrms.entities.concretes.Job;
+import kodlama.io.hrms.entities.dtos.JobForAddDto;
 import kodlama.io.hrms.entities.dtos.JobForGetAllDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
@@ -26,6 +28,16 @@ public class JobController {
     @GetMapping("getall")
     public DataResult<List<JobForGetAllDto>> getAll() {
         return this.jobService.getAll();
+    }
+
+    @GetMapping("getallapprovedjobs")
+    public ResponseEntity<?> getAllApprovedJobs() {
+        return ResponseEntity.ok(jobService.getAllApprovedJobs());
+    }
+
+    @GetMapping("getallunapprovedjobs")
+    public ResponseEntity<?> getAllUnapprovedJobs() {
+        return ResponseEntity.ok(jobService.getAllUnapprovedJobs());
     }
 
     @GetMapping("getallbydate")
@@ -51,7 +63,12 @@ public class JobController {
     }
 
     @PostMapping("add")
-    public Result add(@RequestBody Job job){
-        return this.jobService.add(job);
+    public Result add(@RequestBody JobForAddDto JobForAddDto){
+        return this.jobService.add(JobForAddDto);
+    }
+
+    @PostMapping("delete")
+    public Result delete(@RequestParam int id){
+        return this.jobService.delete(id);
     }
 }

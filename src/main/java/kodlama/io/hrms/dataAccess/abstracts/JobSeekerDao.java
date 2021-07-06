@@ -14,6 +14,6 @@ public interface JobSeekerDao extends JpaRepository<JobSeeker,Integer> {
 
     JobSeeker findById(int id);
 
-    @Query("from JobSeeker j inner join j.workExperiences w order by w.dateOfStarting desc ")
+    @Query("from JobSeeker j inner join j.workExperiences w order by w.startingDate desc ")
     List<JobSeeker> findByOrderByWorkExperiences_StartingDateDesc();
 }

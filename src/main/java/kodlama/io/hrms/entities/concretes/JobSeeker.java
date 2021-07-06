@@ -53,10 +53,10 @@ public class JobSeeker{
     @OneToMany(mappedBy = "jobSeeker",targetEntity = AttendedSchool.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<AttendedSchool> attendedSchools;
 
-    @OneToMany(mappedBy = "jobSeeker",targetEntity = AttendedSchool.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "jobSeeker",targetEntity = Image.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Image> images;
 
-    @OneToMany(mappedBy = "jobSeeker",targetEntity = AttendedSchool.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "jobSeeker",targetEntity = WorkExperience.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<WorkExperience> workExperiences;
 
 

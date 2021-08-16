@@ -92,7 +92,7 @@ CREATE TABLE public.jobs
 (
     id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
     general_position_id integer NOT NULL,
-    description character varying(200) NOT NULL,
+    description character varying(3400) NOT NULL,
     city_id integer NOT NULL,
     min_salary integer NOT NULL,
     max_salary integer NOT NULL,

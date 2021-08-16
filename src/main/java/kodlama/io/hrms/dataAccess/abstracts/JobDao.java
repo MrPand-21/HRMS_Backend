@@ -33,6 +33,17 @@ public interface JobDao extends JpaRepository<Job, Integer> {
             " inner join j.city c " +
             " inner join j.workPlace wp" +
             " inner join j.workTime wt" +
+            " where j.id = :id")
+    JobForGetAllDto getJobForGetAllDtoById(int id);
+    @Query("select new kodlama.io.hrms.entities.dtos.JobForGetAllDto" +
+            "(j.id , j.minimumSalary, j.maximumSalary, j.empty_positions, p.position_name , e.companyName , c.cityName ,j.createdDate, j.deadline, wp.workPlaceName, wt.workTimeName, j.description, j.isActive ,apf.isApproved )" +
+            " from ActivationPanelForSystemUser apf " +
+            " inner join apf.job j" +
+            " inner join j.employer e" +
+            " inner join j.jobPosition p" +
+            " inner join j.city c " +
+            " inner join j.workPlace wp" +
+            " inner join j.workTime wt" +
             " where apf.isApproved = true")
     List<JobForGetAllDto> getAllApprovedJobDtos();
 

@@ -70,6 +70,16 @@ public class JobManager implements JobService {
     }
 
     @Override
+    public DataResult<Job> getJobById(int id) {
+        return new SuccessDataResult<Job>(Messages.DataListed, jobDao.getJobById(id));
+    }
+
+    @Override
+    public DataResult<JobForGetAllDto> getJobForGetAllDtoById(int id) {
+        return new SuccessDataResult<JobForGetAllDto>(Messages.DataListed, jobDao.getJobForGetAllDtoById(id));
+    }
+
+    @Override
     public DataResult<List<Job>> getAllJobOfEmployer(int employerId) {
         return new SuccessDataResult<List<Job>>(Messages.DataListed,
                 jobDao.getAllByIsActiveTrueAndEmployer_Id(employerId));

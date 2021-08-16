@@ -45,6 +45,16 @@ public class JobController {
         return this.jobService.getAllByDate();
     }
 
+    @GetMapping("getjobforgetalldtobyid")
+    public ResponseEntity<?> getJobForGetAllDtoById(int id) {
+        return ResponseEntity.ok(jobService.getJobForGetAllDtoById(id));
+    }
+
+    @GetMapping("getjobbyid")
+    public ResponseEntity<?> getJobById(int id) {
+        return ResponseEntity.ok(jobService.getJobById(id));
+    }
+
     @PostMapping("getalljobsofemployer")
     public DataResult<List<Job>> getAllJobsOfEmployer(@RequestParam int employerId) {
         return this.jobService.getAllJobOfEmployer(employerId);

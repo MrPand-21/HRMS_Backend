@@ -18,6 +18,10 @@ public interface JobService {
 
     DataResult<List<JobForGetAllDto>> getAllByDate();
 
+    DataResult<JobForGetAllDto> getJobForGetAllDtoById(int id);
+
+    DataResult<Job> getJobById(int id);
+
     DataResult<List<Job>> getAllJobOfEmployer(int employerId);
 
     Result setInactiveToJobVisibility(int id);

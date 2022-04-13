@@ -1,10 +1,26 @@
 <div align="center">
-  
-# HRMS_Backend
-
-<a href="https://github.com/MrPand-21/HRMS_Backend/graphs/contributors"><img src="https://img.shields.io/github/contributors/MrPand-21/HRMS_Backend.svg?style=for-the-badge"></a>
+  <a href="https://github.com/MrPand-21/HRMS_Backend/graphs/contributors"><img src="https://img.shields.io/github/contributors/MrPand-21/HRMS_Backend.svg?style=for-the-badge"></a>
   <a href="https://github.com/MrPand-21/HRMS_Backend/network/members"><img src="https://img.shields.io/github/forks/MrPand-21/HRMS_Backend.svg?style=for-the-badge"></a>
   <a href="https://github.com/MrPand-21/HRMS_Backend/stargazers"><img src="https://img.shields.io/github/stars/MrPand-21/HRMS_Backend.svg?style=for-the-badge"></a>
+  <br/>
+  <br/>
+  <a href="https://github.com/MrPand-21/HRMS_Backend">
+    <img src="https://github.com/MrPand-21/MrPand-21/blob/main/HRMS.png" height="160" alt="HRMS">
+  </a>
+  <h3>HRMS_Backend</h3>
+
+  <p align="center">
+    <a href="#about-the-project">About</a> •
+    <a href="#usage">How To Use</a> •
+    <a href="#installation">Installation</a> •
+    <a href="#credits">Credits</a> •
+    <a href="#reference-documentation">Related</a> •
+    <a href="https://github.com/ahmet-cetinkaya/hrms-project-backend/issues">Report Bug</a> •
+    <a href="https://github.com/ahmet-cetinkaya/hrms-project-backend/issues">Request Feature</a>
+  </p>
+  <h4 align="center">N-Layer Architecture human resource management system project builted by 
+    <a href="https://www.java.com/" target="_blank">Java</a>.
+  </h4>
 </div>
 
 # About the Project
@@ -32,17 +48,18 @@ The things you need before installing the software.
 
 A step by step guide that will tell you how to get the development environment up and running.
 
-```
-$ First step
-$ Another step
-$ Final step
+```bash
+# Clone this repository
+$ git clone https://github.com/MrPand-21/HRMS_Backend.git
+# Go into the repository
+$ cd HRMS_Backend
 ```
 
 ## Usage
 
 A few examples of useful commands and/or tasks.
 
-```
+```bash
 $ First example
 $ Second example
 $ And keep this in mind
@@ -58,16 +75,6 @@ Additional notes on how to deploy this on a live or release system. Explaining t
 * Release:
 * Development:
 
-## Contributing
-
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**. Right now there is only one branch which is master.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
 # Endpoints
 
 |HTTP|URL|METOT|
@@ -79,6 +86,16 @@ Contributions are what make the open source community such an amazing place to b
 |DELETE| https://localhost:8001/id |User Delete|
 |POST| https://localhost:8001/login|User Login|
 |POST| https://localhost:8001/register |User Register|
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**. Right now there is only one branch which is master.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 
 ### Reference Documentation
@@ -105,3 +122,7 @@ The following guides illustrate how to use some features concretely:
 These additional references should also help you:
 
 * [Configure the Spring AOT Plugin](https://docs.spring.io/spring-native/docs/0.9.2/reference/htmlsingle/#spring-aot-maven)
+
+### Credits
+
+Carabelli - Engin Demiroğ

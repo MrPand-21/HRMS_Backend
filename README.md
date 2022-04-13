@@ -1,8 +1,11 @@
+<div align="center">
+  
 # HRMS_Backend
 
 <a href="https://github.com/MrPand-21/HRMS_Backend/graphs/contributors"><img src="https://img.shields.io/github/contributors/MrPand-21/HRMS_Backend.svg?style=for-the-badge"></a>
   <a href="https://github.com/MrPand-21/HRMS_Backend/network/members"><img src="https://img.shields.io/github/forks/MrPand-21/HRMS_Backend.svg?style=for-the-badge"></a>
   <a href="https://github.com/MrPand-21/HRMS_Backend/stargazers"><img src="https://img.shields.io/github/stars/MrPand-21/HRMS_Backend.svg?style=for-the-badge"></a>
+</div>
 
 # About the Project
 

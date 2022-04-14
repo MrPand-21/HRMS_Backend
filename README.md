@@ -69,7 +69,7 @@ Then open the Postgre's `pgAdmin4`, under Databases (Servers/Your Server/Databas
 3. Configure the Connection
 you can open the application.properties in terminal:
 ```bash
-#open in terminal
+# open in terminal
 $ nano src/main/resources/application.properties
 ```
 or you can directly open in your code editor. Then, configure your cridentials in the application.properties file. 

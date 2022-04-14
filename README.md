@@ -75,8 +75,16 @@ $ nano src/main/resources/application.properties
 or you can directly open in your code editor. Then, configure your cridentials in the application.properties file. 
 
 4. Create Mernis Connection (Optional)
+
 **This project created in Turkey, that's why it uses Mernis Syste to check if the person Turkey citizen or not. If you don't want to use it, you can delete the `mernisService` folder and delete `mernisServiceAdapter.java` and related files.**
 
+To use the mernis service, you can use the <a href="https://easywsdl.com/WsdlGenerator">WSDL Generator</a>. 
+If you use IntellijIdea, you can follow the following instructions:
+
+1. In the IntellijIdea interface open Plugins > Marketplace and type EasyWSDL and install the plugin (here, you may need to restart Ide).
+2. Open the project again
+3. Double click `mernisService` folder and press `EasyWSDL - Update web service` option and it will regenerate all files.
+4. Close `mernisService`folder and go `MernisServiceAdapter.java` file in core/utilities/adapters/adapters/concretes and change imports, replace old imports with new file imports and there you are!
 
 
 ## Usage
@@ -141,6 +149,7 @@ The following guides illustrate how to use some features concretely:
 * [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
 * [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
 * [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
+* [Installing and Using EasyWSDL in IntellijIdea from stratch](https://github.com/torukobyte/JavaCampHomework/tree/master/MernisServiceEkleme)
 
 ### Additional Links
 These additional references should also help you:

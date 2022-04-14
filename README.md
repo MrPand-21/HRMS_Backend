@@ -15,8 +15,8 @@
     <a href="#installation">Installation</a> •
     <a href="#credits">Credits</a> •
     <a href="#reference-documentation">Related</a> •
-    <a href="https://github.com/ahmet-cetinkaya/hrms-project-backend/issues">Report Bug</a> •
-    <a href="https://github.com/ahmet-cetinkaya/hrms-project-backend/issues">Request Feature</a>
+    <a href="https://github.com/MrPand-21/HRMS_Backend/issues">Report Bug</a> •
+    <a href="https://github.com/MrPand-21/HRMS_Backend/issues">Request Feature</a>
   </p>
   <h4 align="center">N-Layer Architecture human resource management system project builted by 
     <a href="https://www.java.com/" target="_blank">Java</a>.
@@ -46,14 +46,38 @@ The things you need before installing the software.
 
 ### Installation
 
-A step by step guide that will tell you how to get the development environment up and running.
+A step by step guide that will tell you how to get the development environment up and running:
 
+1. Clone the repository
 ```bash
 # Clone this repository
 $ git clone https://github.com/MrPand-21/HRMS_Backend.git
 # Go into the repository
 $ cd HRMS_Backend
 ```
+Open this in terminal or you can use your ide!
+
+2. Create PostgreSQL connectinon (If don't use Postgre, execute script in yours)
+```bash
+# open the Postgre SQL script
+$ nano `PostgreDatabaseSQL`
+```
+Here,  copy the SQL script from here or open it from github and copy.
+
+Then open the Postgre's `pgAdmin4`, under Databases (Servers/Your Server/Databases/) create a database and give its name to it (Default = HRMS). Then find the CREATE Script option (double click to database). It will open a `Query Editor` to you and here, paste the SQL script we copied from `PostgreDatabaseSQL` file and execute the script. Don't forget to refresh database to see the tables.
+
+3. Configure the Connection
+you can open the application.properties in terminal:
+```bash
+#open in terminal
+$ nano src/main/resources/application.properties
+```
+or you can directly open in your code editor. Then, configure your cridentials in the application.properties file. 
+
+4. Create Mernis Connection (Optional)
+**This project created in Turkey, that's why it uses Mernis Syste to check if the person Turkey citizen or not. If you don't want to use it, you can delete the `mernisService` folder and delete `mernisServiceAdapter.java` and related files.**
+
+
 
 ## Usage
 

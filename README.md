@@ -76,7 +76,7 @@ or you can directly open in your code editor. Then, configure your cridentials i
 
 4. Create Mernis Connection (Optional)
 
-**This project created in Turkey, that's why it uses Mernis Syste to check if the person Turkey citizen or not. If you don't want to use it, you can delete the `mernisService` folder and delete `mernisServiceAdapter.java` and related files.**
+**This project created in Turkey, that's why it uses Mernis System to check if the person is Turkey citizen or not. If you don't want to use it, you can delete the `mernisService` folder and delete `mernisServiceAdapter.java` and related files.**
 
 To use the mernis service, you can use the <a href="https://easywsdl.com/WsdlGenerator">WSDL Generator</a>. 
 If you use IntellijIdea, you can follow the following instructions:
@@ -86,38 +86,33 @@ If you use IntellijIdea, you can follow the following instructions:
 3. Double click `mernisService` folder and press `EasyWSDL - Update web service` option and it will regenerate all files.
 4. Close `mernisService`folder and go `MernisServiceAdapter.java` file in core/utilities/adapters/adapters/concretes and change imports, replace old imports with new file imports and there you are!
 
+If you use Eclipse, you can follow the following instructions:
 
-## Usage
+1. Double click `mernisService` folder and press Add > Connected Service. As url paste https://tckimlik.nvi.gov.tr/service/kpspublic.asmx and press finish button.
+2. Close `mernisService`folder and go `MernisServiceAdapter.java` file in core/utilities/adapters/adapters/concretes and change imports, replace old imports with new file imports and there you are!
 
-A few examples of useful commands and/or tasks.
+## Usage - Deployment - Server
 
-```bash
-$ First example
-$ Second example
-$ And keep this in mind
-```
+Now, you can start the project in HRMSApplication.java. Since we use springboot, you may want to go to the springboot interface.
 
-## Deployment
+* Live: http://localhost:8080/swagger-ui.html
 
-Additional notes on how to deploy this on a live or release system. Explaining the most important branches, what pipelines they trigger and how to update the database (if anything special).
+Once you open this link after run the application, you can use it. That's it!
 
-### Server
+# Controllers
 
-* Live:
-* Release:
-* Development:
+In the swagger-ui panel, there are 10 different controllers which you can use. They are :
 
-# Endpoints
-
-|HTTP|URL|METOT|
-|---|---|---|
-|GET| https://localhost:8001/ |User List|
-|POST| https://localhost:8001/ |User Create|
-|GET| https://localhost:8001/id |User Retrieve|
-|PUT| https://localhost:8001/id |User Update|
-|DELETE| https://localhost:8001/id |User Delete|
-|POST| https://localhost:8001/login|User Login|
-|POST| https://localhost:8001/register |User Register|
+1. Activation Panel Controller
+2. Basic Error Controller
+3. City Controller
+4. Employer Controller
+5. Images Controller
+6. Job Controller
+7. Job Position Controller
+8. Job Seekers Controller
+9. Work Places Controller
+10. Work Times Controller
 
 ## Contributing
 

@@ -115,6 +115,7 @@ In the swagger-ui panel, there are 10 different controllers which you can use. T
 10. Work Times Controller
 
 Please Refer to API Documentation
+
 [![API Documentation](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)](https://github.com/ahmet-cetinkaya/hrms-project-backend/blob/master/APIDocumentation.md)
 
 ## Contributing

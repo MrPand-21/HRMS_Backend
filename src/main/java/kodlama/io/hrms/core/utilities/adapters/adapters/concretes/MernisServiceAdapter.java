@@ -6,7 +6,7 @@ import kodlama.io.hrms.core.utilities.results.FailResult;
 import kodlama.io.hrms.core.utilities.results.Result;
 import kodlama.io.hrms.core.utilities.results.SuccessResult;
 import kodlama.io.hrms.entities.concretes.JobSeeker;
-import mernisService.KPSPublicSoap;
+import mernisService.ECHKPSPublicSoap;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,8 +15,8 @@ public class MernisServiceAdapter implements JobSeekerCheckService {
     @Override
     public Result checkIfRealPerson(JobSeeker jobSeeker) throws Exception {
 
-        KPSPublicSoap kpsPublicSoap = new KPSPublicSoap();
-        boolean result = kpsPublicSoap.TCKimlikNoDogrula(jobSeeker.getNationalityId(),
+        ECHKPSPublicSoap echkpsPublicSoap = new ECHKPSPublicSoap();
+        boolean result = echkpsPublicSoap.TCKimlikNoDogrula(jobSeeker.getNationalityId(),
                 jobSeeker.getFirstName(),
                 jobSeeker.getLastName(),
                 jobSeeker.getBirthDate());

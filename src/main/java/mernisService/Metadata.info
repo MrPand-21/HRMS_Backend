@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <EasyWSDL>
   <Info>
-    <Version>5.11.5.0</Version>
+    <Version>6.0.0.0</Version>
     <AccountType>Basic</AccountType>
     <LibrariesFolder>easywsdl</LibrariesFolder>
-    <MainClass>NFLKPSPublicSoap</MainClass>
+    <MainClass>ECHKPSPublicSoap</MainClass>
   </Info>
   <Settings>
     <Url>https://tckimlik.nvi.gov.tr/service/kpspublic.asmx</Url>
@@ -29,13 +29,13 @@
     <DetectDictionaries>false</DetectDictionaries>
   </Settings>
   <Files>
-    <File>DateTimeConverter.java</File>
-    <File>StandardDateTimeConverter.java</File>
-    <File>ExtendedSoapSerializationEnvelope.java</File>
-    <File>KPSPublicSoap.java</File>
-    <File>MarshalGuid.java</File>
-    <File>Helper.java</File>
-    <File>KPSPublicSoap12.java</File>
+    <File>ECHDateTimeConverter.java</File>
+    <File>ECHExtendedSoapSerializationEnvelope.java</File>
+    <File>ECHKPSPublicSoap.java</File>
+    <File>ECHKPSPublicSoap12.java</File>
+    <File>ECHStandardDateTimeConverter.java</File>
+    <File>ECHHelper.java</File>
+    <File>ECHMarshalGuid.java</File>
   </Files>
   <Libraries>
     <File>ksoap2-android-assembly-3.6.4-jar-with-dependencies.jar</File>
